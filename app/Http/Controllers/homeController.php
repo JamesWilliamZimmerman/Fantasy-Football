@@ -8,7 +8,9 @@ class homeController extends Controller
 {
     public function index() 
     {
-        return view('home');
+        $sum = 5 + 6;
+        return $sum;
+        //return view('Welcome');
     }
 }
 
