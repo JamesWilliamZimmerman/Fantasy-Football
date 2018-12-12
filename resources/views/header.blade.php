@@ -15,7 +15,7 @@
                 <li>My Team</li>
                 <li>My League</li>
                 <li>Matchup</li>
-                <li>Players</li>
+                <li><a href="/player">Players</a></li>
             </ul>
             <ul id="authButtons">
                 <li>Sign Up</li>
