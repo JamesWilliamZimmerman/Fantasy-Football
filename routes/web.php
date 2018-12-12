@@ -18,3 +18,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/player', 'PlayerController@index');
+
+Route::get('/team', 'TeamController@Index');
+
+Route::get('league', 'LeagueController@Index');
+
+Route::get('matchup', 'MatchupController@Index');

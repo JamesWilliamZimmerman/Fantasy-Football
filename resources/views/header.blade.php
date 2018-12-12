@@ -12,9 +12,9 @@
         </div>
             <ul id="top_nav">
                 <li><a href= "/home">Home</a></li>
-                <li>My Team</li>
-                <li>My League</li>
-                <li>Matchup</li>
+                <li><a href= "/team">My Team</a></li>
+                <li><a href= "/league">My League</a></li>
+                <li><a href= "/matchup">Matchup</a></li>
                 <li><a href="/player">Players</a></li>
             </ul>
             <ul id="authButtons">
