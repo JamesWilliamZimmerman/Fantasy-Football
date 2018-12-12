@@ -15,9 +15,9 @@ Route::get('/', 'homeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@Index');
 
-Route::get('/player', 'PlayerController@index');
+Route::get('/player', 'PlayerController@Index');
 
 Route::get('/team', 'TeamController@Index');
 
