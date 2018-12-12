@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'aama6znz91d2ag.cfwp5zlug7yf.us-east-2.rds.amazonaws.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'FFBDB'),
+            'username' => env('DB_USERNAME', 'FFBAdmin'),
+            'password' => env('DB_PASSWORD', 'Youknowit1!'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
