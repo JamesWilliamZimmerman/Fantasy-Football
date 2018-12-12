@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-@inlude('header')
+@include('header')
 <html>
 <head>
     <title>Players</title>

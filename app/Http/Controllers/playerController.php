@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class player extends Controller
+class playerController extends Controller
 {
 
     public function index() 
     {
-        return view('players');
+        return view('player');
     }
-    
+   
+    public function calcUsage()
+    {
+         
     
     //original stats
     $originalPlayerPointTotal;
@@ -77,8 +80,6 @@ class player extends Controller
             $numThrowsOverFortyPointTotal;
 
     //old stats account for 80 percent of the new point total while the new usage stats account for 20
-
-   
-
-
+    return null;
+    }
 }

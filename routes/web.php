@@ -17,4 +17,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/player', 'playerController@index');
+Route::get('/player', 'PlayerController@index');
