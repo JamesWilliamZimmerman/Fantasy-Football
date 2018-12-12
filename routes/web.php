@@ -21,6 +21,6 @@ Route::get('/player', 'PlayerController@index');
 
 Route::get('/team', 'TeamController@Index');
 
-Route::get('league', 'LeagueController@Index');
+Route::get('/league', 'LeagueController@Index');
 
-Route::get('matchup', 'MatchupController@Index');
+Route::get('/matchup', 'MatchupController@Index');
