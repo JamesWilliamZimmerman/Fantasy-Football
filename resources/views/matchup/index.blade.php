@@ -1,16 +1,11 @@
-<!DOCTYPE html>
 @include('header')
-<html>
-<head>
-    <title>Players</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-</head>
+@extends('layouts.app')
 
 <body>
 <h2>Matchup</h2>
 
 <div class = "TeamOne">
-    <table style="width:100%">
+    <table class="leaguetable" style="width:100%">
         <tr>
           <th>Name</th>
           <th>Position</th> 
@@ -99,7 +94,7 @@
    </div>
    
    <div class = "TeamTwo">
-<table style="width:100%">
+<table class="leaguetable" style="width:100%">
   <tr>
     <th>Name</th>
     <th>Position</th> 

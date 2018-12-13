@@ -6,7 +6,7 @@
 <h2>Player</h2>
 
 
-<table style="width:100%">
+<table class="leaguetable" style="width:100%">
   <tr>
     <th>Name</th>
     <th>Position</th> 
@@ -22,7 +22,6 @@
     <td><p>KC</p></td>
     <td><p>20.8</p></td>
     <td><p>5</p></td>
-
   </tr>
   <tr>
     <td><p>Ben Roethlisberger</p></td>

@@ -1,15 +1,10 @@
-<!DOCTYPE html>
 @include('header')
-<html>
-<head>
-    <title>Team</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-</head>
+@extends('layouts.app')
 
 <body>
 <h2>Active Roster</h2>
 
-<table style="width:100%">
+<table class="leaguetable" style="width:100%">
   <tr>
     <th>Name</th>
     <th>Position</th> 

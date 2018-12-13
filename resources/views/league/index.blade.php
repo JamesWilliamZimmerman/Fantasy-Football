@@ -7,7 +7,7 @@
 @foreach($league as $leagues)
 <h1>{{$leagues->LeagueName}}</h1>
 
-<table id="leaguetable" style="width:100%">
+<table class="leaguetable" style="width:100%">
   <tr>
     <th>Name</th>
     <th>Wins</th> 
