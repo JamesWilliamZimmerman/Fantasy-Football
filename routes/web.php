@@ -10,17 +10,15 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+@include('DB.php');
 
 Route::get('/', 'homeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'homeController@index');
+Route::get('/home/', 'homeController@index');
 
-Route::get('/player', 'playerController@index');
-
-Route::get('/team', 'TeamController@Index');
-
-Route::get('/league', 'LeagueController@Index');
-
-Route::get('/matchup', 'MatchupController@Index');
+Route::resource('players', 'PlayerController');
+Route::resource('teams', 'TeamController');
+Route::resource('leagues', 'LeagueController');
+Route::resource('matchups', 'MatchupController');

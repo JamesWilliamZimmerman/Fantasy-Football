@@ -8,6 +8,6 @@ class MatchupController extends Controller
 {
     public function index() 
     {
-        return view('matchup');
+        return view('matchup.index');
     }
 }

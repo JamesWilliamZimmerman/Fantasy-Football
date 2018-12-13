@@ -1,5 +1,6 @@
 <!DOCTYPE hmtl>
 @include('header')
+
 <div class="home">
 <html>   
     <head>
@@ -8,6 +9,7 @@
     </head>   
     <div class="home" > 
         <body>
+            
             <div class="greeting">
              <h1>WELCOME TO FANTASY FOOTBALL<h1>
             </div>

@@ -3,21 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Week;
 
 class PlayerController extends Controller
 {
-
-    public function index() 
-    {
-        return view('player');
-    }
-   
-    public function calcUsage()
-    {
-         
-    
+     public function index() 
+     {
+    $counter = 0;
+    $array = array();     
+    $players = Week::all();
     //original stats
-    $originalPlayerPointTotal;
+    foreach($players as $player){
 
     //multipliers/algorithms RBs WRs TEs
     $fiveYardCarriesMult = 1;
@@ -37,40 +33,40 @@ class PlayerController extends Controller
     $throwsOverThirtyMult = 2;
     $throwsOverFortyMult = 3;
 
-    $numTeamOverallCarries;
-    $numPlayerOverallCarries;
+    $numTeamOverallCarries = $player->TeamOverallCarries;
+    $numPlayerOverallCarries = $player->PlayerOverallCarries;
     $numPlayerOverallCarriesPointTotal = $numPlayerOverallCarries * $overallCarriesMult;
-    $overallCarryPercentPointTotal = ($numPlayerOverallCarries / $numTeamOverallCarries) * $overallCarryPercentMult;
-    $numPlayerFiveYardCarries;
-    $numTeamFiveYardCarries;
+    $overallCarryPercentPointTotal = $numPlayerOverallCarries * $numTeamOverallCarries * $overallCarryPercentMult;
+    $numPlayerFiveYardCarries = $player->PlayerFiveYardCarries;
+    $numTeamFiveYardCarries = $player->TeamFiveYardCarries;
     $numPlayerFiveYardCarriesPointTotal = $numPlayerFiveYardCarries * $fiveYardCarriesMult;
-    $fiveYardCarriesPercentPointTotal = ($numPlayerFiveYardCarries / $numTeamFiveYardCarries) * $fiveYardCarriesPercentMult;
+    $fiveYardCarriesPercentPointTotal = $numPlayerFiveYardCarries * $numTeamFiveYardCarries * $fiveYardCarriesPercentMult;
   
-    $numPlayerFiveYardTargets;
-    $numTeamFiveYardTargets;
+    $numPlayerFiveYardTargets = $player->PlayerFiveYardTargets;
+    $numTeamFiveYardTargets = $player->TeamFiveYardTargets;
     $numPlayerFiveYardTargetsPointTotal = $numPlayerFiveYardTargets * $fiveYardTargetsMult;
-    $fiveYardTargetPercentPointTotal = ($numPlayerFiveYardTargets / $numTeamFiveYardTargets) * $fiveYardTargetPercentMult;
+    $fiveYardTargetPercentPointTotal = $numPlayerFiveYardTargets * $numTeamFiveYardTargets * $fiveYardTargetPercentMult;
   
-    $numPlayerOverallTargets;
-    $numTeamOverallTargets;
+    $numPlayerOverallTargets = $player->PlayerOverallTargets;
+    $numTeamOverallTargets = $player->TeamOverallTargets;
     $numPlayerOverallTargetsPointTotal = $numPlayerOverallTargets * $overallTargetMult;
-    $overallTargetPercentPointTotal = ($numPlayerOverallTargets / $numTeamOverallTargets) * $overallTargetPercentMult;
+    $overallTargetPercentPointTotal = $numPlayerOverallTargets * $numTeamOverallTargets * $overallTargetPercentMult;
     
 
-    $numPlayerSnaps;
-    $numTeamSnaps;
-    $snapPercentagePointsTotal = ($numPlayerSnaps / $numTeamSnaps) * $snapPercentMult;
+    $numPlayerSnaps = $player->PlayerSnaps;
+    $numTeamSnaps = $player->TeamSnaps;
+    $snapPercentagePointsTotal = $numPlayerSnaps * $numTeamSnaps * $snapPercentMult;
 
-    $numPlayerRecept;
-    $receptionPercentPointTotal = ($numPlayerRecept / $numPlayerOverallTargets) * $receptionPercentMult;
+    $numPlayerRecept = $player->PlayerReceptions;
+    $receptionPercentPointTotal = $numPlayerRecept * $numPlayerOverallTargets * $receptionPercentMult;
 
-    $numRedZoneThrows;
+    $numRedZoneThrows = $player->RedZoneThrows;
     $numRedZoneThrowsPointTotal = $numRedZoneThrows * $redZoneThrowsMult;
-    $numThrowsOverTwenty;
+    $numThrowsOverTwenty = $player->ThrowsOverTwenty;
     $numThrowsOverTwentyPointTotal = $numThrowsOverTwenty * $throwsOverTwentyMult;
-    $numThrowsOverThirty;
+    $numThrowsOverThirty = $player->ThrowsOverThirty;
     $numThrowsOverThirtyPointTotal = $numThrowsOverThirty * $throwsOverThirtyMult;
-    $numThrowsOverForty;
+    $numThrowsOverForty = $player->ThrowsOverForty;
     $numThrowsOverFortyPointTotal = $numThrowsOverForty * $throwsOverFortyMult;
 
     $playerUsageTotal = $numPlayerOverallCarriesPointTotal + $overallCarryPercentPointTotal + $numPlayerFiveYardCarriesPointTotal
@@ -78,8 +74,16 @@ class PlayerController extends Controller
             $numPlayerOverallTargetsPointTotal + $overallTargetPercentPointTotal + $snapPercentagePointsTotal + 
             $receptionPercentPointTotal + $numRedZoneThrowsPointTotal + $numThrowsOverTwentyPointTotal + $numThrowsOverThirtyPointTotal + 
             $numThrowsOverFortyPointTotal;
-
+    $playerUsageTotal = $playerUsageTotal+300;
+    $playerUsageTotal = $playerUsageTotal/40;
     //old stats account for 80 percent of the new point total while the new usage stats account for 20
-    return null;
+    $array[$counter] = (int) $playerUsageTotal;
+    $counter++;
     }
+        //$players = Week::all();
+        return view('player.index')->with('players', $players);
+    }
+   
+    
+
 }
